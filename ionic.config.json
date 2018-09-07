@@ -1,0 +1,7 @@
+{
+  "name": "slac-front",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
