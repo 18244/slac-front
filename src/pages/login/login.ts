@@ -1,6 +1,9 @@
-import { HomePage } from './../home/home';
+import { Usuario } from './../../modelos/usuario';
 import { Component } from '@angular/core';
+import { HomePage } from './../home/home';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { UserServiceProvider } from './../../providers/user-service/user-service';
 
 @IonicPage()
 @Component({
@@ -9,7 +12,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor( public navCtrl: NavController, 
+               public navParams: NavParams,
+               private _userServiceProvider: UserServiceProvider ) {
   }
 
   ionViewDidLoad() {
@@ -17,7 +22,14 @@ export class LoginPage {
   }
 
   onLoginClick(){
-    this.navCtrl.push(HomePage);
+
+    this._userServiceProvider.efetuaLogin()
+      .subscribe( (usuario: Usuario[]) =>{
+      this.navCtrl.push(HomePage)
+      console.log(usuario);
+    }, 
+    (err) => console.log(err)    
+    );
   }
 
 }
