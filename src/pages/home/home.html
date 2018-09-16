@@ -7,13 +7,35 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let chamado of chamados">
-    <ion-item>Tipo: {{chamado.tipo}}</ion-item>
-    <ion-item>Descrição: {{chamado.descricao}}</ion-item>
-    <ion-item>Prioridade: {{chamado.prioridade}}</ion-item>
-    
-  </ion-list>
-  <ion-fab bottom right #fab>
-    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  <ion-item text-center>
+      <h1>Chamados</h1>
+  </ion-item>
+
+  <ion-grid>
+    <ion-item-divider color="light">
+      <ion-row>
+      <ion-col>Tipo</ion-col>
+      <ion-col>Prioridade</ion-col>
+      <ion-col>Local</ion-col>
+      </ion-row>
+    </ion-item-divider>
+    <ion-item-divider *ngFor="let chamado of chamados">  
+      <ion-row>
+        <ion-col>
+          {{chamado.tipo}}
+        </ion-col>
+        <ion-col>
+          {{chamado.prioridade}}
+        </ion-col>
+        <ion-col>
+          {{chamado.local}}
+        </ion-col>
+      </ion-row>
+    </ion-item-divider>
+  </ion-grid>
+
+  <ion-fab  bottom right #fab>
+    <button  color="primary" ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
 </ion-content>

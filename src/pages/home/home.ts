@@ -41,7 +41,7 @@ export class HomePage {
         console.log(error)
         this.loading.dismiss();
         this._alertCtrl.create({
-          title: 'Falha ao carregar chamados!',
+          title: 'Erro ao carregar dados!',
           subTitle: 'Tente novamente mais tarde',
           buttons: [
             { text: 'OK' }
