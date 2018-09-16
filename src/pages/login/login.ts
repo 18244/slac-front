@@ -1,7 +1,7 @@
 import { Usuario } from './../../modelos/usuario';
 import { Component } from '@angular/core';
 import { HomePage } from './../home/home';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { UserServiceProvider } from './../../providers/user-service/user-service';
 
@@ -12,23 +12,37 @@ import { UserServiceProvider } from './../../providers/user-service/user-service
 })
 export class LoginPage {
 
-  constructor( public navCtrl: NavController, 
-               public navParams: NavParams,
-               private _userServiceProvider: UserServiceProvider ) {
-  }
+  usuario: Usuario;
+  
+  constructor( 
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private _userServiceProvider: UserServiceProvider,
+    private _alertCtrl: AlertController ) { console.log('Aqui...')}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('LoginPage Works!!');
+    
   }
 
-  onLoginClick(){
-
-    this._userServiceProvider.efetuaLogin()
-      .subscribe( (usuario: Usuario[]) =>{
-      this.navCtrl.push(HomePage)
-      console.log(usuario);
+  onLoginClick( ) {
+      this._userServiceProvider.efetuaLogin( )
+      .subscribe( ( usuario: Usuario[] ) =>{
+        this.navCtrl.push( HomePage, {
+          usuarioLogado: usuario
+        } );
     }, 
-    (err) => console.log(err)    
+    ( err ) => {
+      console.log( err );    
+        this._alertCtrl.create({
+        title: 'Falha no login!',
+        subTitle: 'Tente novamente mais tarde',
+        buttons: [
+          { text: 'OK' }
+        ]
+      }).present();
+    } 
+      
     );
   }
 

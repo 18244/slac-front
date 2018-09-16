@@ -7,5 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <ion-list *ngFor="let chamado of chamados">
+    <ion-item>Tipo: {{chamado.tipo}}</ion-item>
+    <ion-item>Descrição: {{chamado.descricao}}</ion-item>
+    <ion-item>Prioridade: {{chamado.prioridade}}</ion-item>
+    
+  </ion-list>
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>
