@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon  name="menu"></ion-icon>
+    </button>
     <ion-title>
       Home Page
     </ion-title>
@@ -35,7 +38,7 @@
   </ion-grid>
 
   <ion-fab  bottom right #fab>
-    <button  color="primary" ion-fab><ion-icon name="add"></ion-icon></button>
+    <button color="primary" ion-fab (click)="novoChamado()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-content>

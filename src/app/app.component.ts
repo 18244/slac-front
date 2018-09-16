@@ -1,6 +1,7 @@
+import { NovoChamadoPage } from './../pages/novo-chamado/novo-chamado';
 import { LoginPage } from './../pages/login/login';
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,6 +10,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
   rootPage:any = LoginPage;
+  @ViewChild(Nav)
+  public nav: Nav;
+
+  public paginas = [
+    { titulo: 'Novo Chamado', page: NovoChamadoPage.name, icone: 'calendar' },
+    { titulo: 'Logout', page: LoginPage, icone: 'exit' }
+  ];
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,6 +25,15 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  irParaPagina(page){
+    if(page.name === LoginPage.name )
+      this.nav.setRoot(page);
+    
+    else
+      this.nav.push(page);
+    
   }
 }
 

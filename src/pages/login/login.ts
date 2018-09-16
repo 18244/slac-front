@@ -28,7 +28,7 @@ export class LoginPage {
   onLoginClick( ) {
       this._userServiceProvider.efetuaLogin( )
       .subscribe( ( usuario: Usuario[] ) =>{
-        this.navCtrl.push( HomePage, {
+        this.navCtrl.setRoot( HomePage.name, {
           usuarioLogado: usuario
         } );
     }, 

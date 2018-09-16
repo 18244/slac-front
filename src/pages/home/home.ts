@@ -1,3 +1,4 @@
+import { NovoChamadoPage } from './../novo-chamado/novo-chamado';
 import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { Usuario } from '../../modelos/usuario';
@@ -16,7 +17,7 @@ export class HomePage {
   loading: Loading;
 
   constructor(
-    public navCtrl: NavController,
+    private _navCtrl: NavController,
     private _navParams: NavParams,
     private _chamadoService: ChamadoServiceProvider,
     private _loadingCtrl: LoadingController,
@@ -48,5 +49,9 @@ export class HomePage {
           ]
           }).present();
       } ); 
+  }
+
+  novoChamado(){
+    this._navCtrl.push(NovoChamadoPage.name);
   }
 }
