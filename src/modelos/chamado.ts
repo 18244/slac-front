@@ -7,4 +7,5 @@ export interface Chamado{
     data: Date;
     foto: string;
     usuarioId: number;
+    status: string;
 }

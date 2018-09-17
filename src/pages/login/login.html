@@ -1,20 +1,25 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <form>
-    <ion-list>
-        <ion-item>
-          <ion-label floating>Usuário</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>      
-        <ion-item>
-          <ion-label floating>Senha</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>      
-      </ion-list>
-      <button (click)="onLoginClick()" ion-button full large>Acessar</button>
-  </form>    
+<ion-content scroll="false">
+  <div class="splash-bg"></div>
+  <div class="splash-info">
+    <div class="splash-logo"></div>
+    <div class="splash-intro">
+        Sistema Lassalista para Abertura de Chamados
+    </div>
+  </div>
+
+  <div padding>
+    <form (ngSubmit)="onLoginClick()">
+      <ion-item>
+        <ion-label floating>Usuário</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>      
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item> 
+      <button ion-button block large type="submit" class="login">ENTRAR</button>
+    </form>
+  </div>
+
+   
 </ion-content>

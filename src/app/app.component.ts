@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
+  selector: 'myapp',
   templateUrl: 'app.html'
 })
 export class MyApp {
@@ -14,7 +15,12 @@ export class MyApp {
   public nav: Nav;
 
   public paginas = [
-    { titulo: 'Novo Chamado', page: NovoChamadoPage.name, icone: 'calendar' },
+    { titulo: 'Novo Chamado', page: NovoChamadoPage.name, icone: 'person-add' },
+    { titulo: 'Seus chamados', page: LoginPage, icone: 'person' },
+    { titulo: 'Relatórios', page: LoginPage, icone: 'trending-up' },
+    { titulo: 'A equipe de manutenção', page: LoginPage, icone: 'construct' },
+    { titulo: 'Tutorial', page: LoginPage, icone: 'bulb' },
+    { titulo: 'Sobre', page: LoginPage, icone: 'help-circle' },
     { titulo: 'Logout', page: LoginPage, icone: 'exit' }
   ];
 
