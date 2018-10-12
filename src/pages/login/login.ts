@@ -20,10 +20,7 @@ export class LoginPage {
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) { console.log('Aqui...')}
 
-  ionViewDidLoad() {
-    console.log('LoginPage Works!!');
-    
-  }
+  ionViewDidLoad() {}
 
   onLoginClick( ) {
       this._userServiceProvider.efetuaLogin( )

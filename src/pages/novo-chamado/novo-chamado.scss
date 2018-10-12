@@ -1,3 +1,26 @@
 page-novo-chamado {
 
+    ion-title{
+        text-align: center;
+    }
+ 
+    .foto-icon {
+        margin: auto auto 10px;
+        top: 5px;
+        position: relative;
+        background-size: 100%;
+        width: 170px;
+        height: 170px;
+        border-radius: 10%;
+    }
+
+    #tituto-foto{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    img{
+        cursor: pointer;
+    }
 }

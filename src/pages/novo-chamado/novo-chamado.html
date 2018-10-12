@@ -1,12 +1,68 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>novo-chamado</ion-title>
+    <ion-title>Novo Chamado</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content padding class="background-page">
+  <!--<form>-->
+    <div padding>
+      <ion-item>
+        <ion-label>Tipo de Chamado</ion-label>
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="tipo">
+          <ion-option value="limpeza">Limpeza</ion-option>
+          <ion-option value="reparo">Reparo</ion-option>
+          <ion-option value="troca">Troca</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked></ion-label>
+        <ion-input clearInput="true" type="text" [(ngModel)]="descricao" placeholder="Descrição"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Local</ion-label>
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="local">
+          <ion-option value="elevadorA1">Elevador A1</ion-option>
+          <ion-option value="elevadorA2">Elevador A2 </ion-option>
+          <ion-option value="elevadorA3">Elevador A3 </ion-option>
+          <ion-option value="galeria">Galeria</ion-option>
+          <ion-option value="cae">CAE</ion-option>
+          <ion-option value="biblioteca">Biblioteca</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Andar</ion-label>
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="andar">
+          <ion-option value="primeiro">1º Andar</ion-option>
+          <ion-option value="segundo">2º Andar</ion-option>
+          <ion-option value="terceiro">3º Andar</ion-option>
+          <ion-option value="quarto">4º Andar</ion-option>
+          <ion-option value="quinto">5º Andar</ion-option>
+          <ion-option value="sexto">6º Andar</ion-option>
+        </ion-select>
+      </ion-item> 
+      <ion-item>
+       <ion-label>Prioridade</ion-label>
+       <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="prioridade">
+        <ion-option value="baixa">Baixa</ion-option>
+        <ion-option value="media">Média</ion-option>
+        <ion-option value="alta">Alta</ion-option>
+        <ion-option value="urgente">Urgente</ion-option>
+       </ion-select>
+      </ion-item> 
+      <ion-item>
+        <h3 id="tituto-foto">Adicionar Foto</h3>        
+      <div class="foto-icon">
+        <img (click)="insereFoto()" [src]="foto"><img>
+      </div>
+      </ion-item> 
+      <ion-fab  bottom left #fab>
+          <button color="danger" (click)="irLoginPage()" ion-fab><ion-icon name="close"></ion-icon></button>
+      </ion-fab>
+      <ion-fab  bottom right #fab>
+          <button color="green" ion-fab><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+    </div>
+ <!-- </form>-->
 </ion-content>

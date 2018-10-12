@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Chamado } from '../../modelos/chamado';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ChamadoServiceProvider {
@@ -17,8 +18,7 @@ export class ChamadoServiceProvider {
       }
   }
 
-  getChamados(){
+  getChamados() : Observable<Chamado[]>{
     return this._httpClient.get<Chamado[]>(`${this.baseUrl}/chamado`);
   }
-
 }

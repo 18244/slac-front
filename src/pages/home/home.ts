@@ -24,10 +24,10 @@ export class HomePage {
     private _alertCtrl: AlertController ) {
 
     this.usuarios = this._navParams.get('usuarioLogado'); 
-    this.getChamados();   
+    this.carregaChamados();   
   }
 
-  getChamados(){
+  carregaChamados(){
     this.loading =  this._loadingCtrl.create( {
       content: 'Atualizando Chamados...'        
     } );
@@ -52,6 +52,6 @@ export class HomePage {
   }
 
   novoChamado(){
-    this._navCtrl.push(NovoChamadoPage.name);
+    this._navCtrl.setRoot(NovoChamadoPage.name);
   }
 }
