@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 
@@ -9,24 +9,46 @@ import { HomePage } from '../home/home';
   templateUrl: 'novo-chamado.html',
 })
 export class NovoChamadoPage {
-  tipo: string;
-  descricao: string;
-  local: string;
-  andar: string;
-  prioridade: string;
-  foto: string = '../assets/img/foto-icon.png';
+  
+  public tipo: string;
+  public descricao: string;
+  public local: string;
+  public andar: string;
+  public prioridade: string;
+  public foto: string = '../assets/img/foto-icon.png';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor( private _navCtrl: NavController,
+               private _alertController: AlertController) {
   }
 
   ionViewDidLoad() {}
 
   irLoginPage(): void{
-    this.navCtrl.setRoot(HomePage.name);
+    this._navCtrl.setRoot(HomePage.name);
   }
 
   insereFoto():void{
     console.log("Foto");
   }
 
+  confirmaChamado():void {
+      this._alertController.create({
+      title: 'Confirmar o chamado',
+      message: 'Deseja confirmar a abertura deste chamado ?',
+      buttons:[
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Confirma',
+          handler: () => this.cadastraChamado() 
+        }
+      ]
+    }).present();
+  }
+
+  cadastraChamado(): void{
+    console.log('Cadastra...') 
+    this._navCtrl.setRoot(HomePage.name);
+  }
 }

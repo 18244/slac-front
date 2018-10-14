@@ -15,8 +15,8 @@ export class LoginPage {
   usuario: Usuario;
   
   constructor( 
-    public navCtrl: NavController, 
-    public navParams: NavParams,
+    public _navCtrl: NavController, 
+    public _navParams: NavParams,
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) { console.log('Aqui...')}
 
@@ -25,7 +25,7 @@ export class LoginPage {
   onLoginClick( ) {
       this._userServiceProvider.efetuaLogin( )
       .subscribe( ( usuario: Usuario[] ) =>{
-        this.navCtrl.setRoot( HomePage.name, {
+        this._navCtrl.setRoot( HomePage.name, {
           usuarioLogado: usuario
         } );
     }, 

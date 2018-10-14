@@ -22,7 +22,7 @@
       <ion-col>Local</ion-col>
       </ion-row>
     </ion-item-divider>
-    <ion-item-divider *ngFor="let chamado of chamados">  
+    <ion-item-divider class="cursor" *ngFor="let chamado of chamados" (click)="detalhaChamado(chamado)">  
       <ion-row>
         <ion-col>
           {{chamado.tipo}}

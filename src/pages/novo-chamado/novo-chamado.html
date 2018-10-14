@@ -5,9 +5,8 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content padding class="background-page">
+<ion-content class="background-page" padding >
   <!--<form>-->
-    <div padding>
       <ion-item>
         <ion-label>Tipo de Chamado</ion-label>
         <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="tipo">
@@ -53,16 +52,15 @@
       </ion-item> 
       <ion-item>
         <h3 id="tituto-foto">Adicionar Foto</h3>        
-      <div class="foto-icon">
-        <img (click)="insereFoto()" [src]="foto"><img>
-      </div>
+        <div class="foto-icon cursor">
+          <img (click)="insereFoto()" [src]="foto" alt="foto-chamado"><img>
+        </div>
       </ion-item> 
       <ion-fab  bottom left #fab>
           <button color="danger" (click)="irLoginPage()" ion-fab><ion-icon name="close"></ion-icon></button>
       </ion-fab>
       <ion-fab  bottom right #fab>
-          <button color="green" ion-fab><ion-icon name="add"></ion-icon></button>
+          <button color="green" (click)="confirmaChamado()" ion-fab><ion-icon name="add"></ion-icon></button>
       </ion-fab>
-    </div>
  <!-- </form>-->
 </ion-content>
