@@ -14,6 +14,7 @@ import { HomePage } from '../home/home';
 export class NovoChamadoPage {
   
   public chamado: Chamado = new Chamado( );
+  public chamados: Chamado[];
   public foto: string = '../assets/img/foto-icon.png';
 
   constructor( private _navCtrl: NavController,
@@ -54,10 +55,18 @@ export class NovoChamadoPage {
     this.chamado.idUsuario = this._usuarioService.getUsuarioLogado().id;
    
     this._chamadoService.postChamado( this.chamado )
-    .subscribe(( resposta ) => console.log( resposta ),
+    .subscribe(( resposta ) => this.carregaChamados( ),
     (erro) => console.log(erro)
     );
+  }
 
-    this._navCtrl.setRoot(HomePage.name);
+  carregaChamados( ): void {
+    this._chamadoService.getChamados( )
+    .subscribe( chamados => {
+      this.chamados = chamados
+      this._navCtrl.setRoot( HomePage.name , { novosChamados: this.chamados } );
+    } ,
+    (erro) => console.log(erro)
+    );
   }
 }

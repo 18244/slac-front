@@ -24,9 +24,11 @@ export class HomePage {
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController, 
     private _modalCtrl: ModalController) {
-
-    this.usuarios = this._navParams.get('usuarioLogado'); 
     this.carregaChamados();   
+  }
+
+  ionViewDidLoad( ) {
+    this.chamados = this._navParams.get( 'novosChamados' ); 
   }
 
   carregaChamados(){

@@ -20,7 +20,7 @@ export class LoginPage {
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) {
       this.usuario.login = 'Luiz';
-      this.usuario.senha = '123456';
+      this.usuario.senha = '1234';
     }
 
   ionViewDidLoad() {}
