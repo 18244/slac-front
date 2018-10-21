@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Detalhes do chamado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background-page" padding>
+  <ion-item-divider class="header" text-center color="light">
+     Chamado: {{chamado?.id}}
+  </ion-item-divider>
+  <ion-item>Tipo: {{chamado?.tipo}}</ion-item>
+  <ion-item>Descricao: {{chamado?.descricao}}</ion-item>
+  <ion-item>Local: {{chamado?.local}}</ion-item>
+  <ion-item>Prioridade: {{chamado?.prioridade}}</ion-item>
+  <ion-item>Data: {{chamado?.data | date:'dd/MM/yyyy'}}</ion-item>
+  <ion-item>Status: {{chamado?.status}}</ion-item>
+  <ion-item>Atribuído a : {{responsavel}}</ion-item>
+  <div class="foto-icon">
+    <img [src]="foto" alt="foto-chamado"><img>
+  </div>
+  <ion-fab  bottom left #fab>
+      <button color="primary" (click)="fechaModal()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>
+  </ion-fab>
+  <ion-fab  bottom right #fab>
+    <button color="green" (click)="atribuiChamado()" ion-fab>  <ion-icon name="send"></ion-icon></button>
+  </ion-fab>
+</ion-content>

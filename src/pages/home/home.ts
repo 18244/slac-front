@@ -1,6 +1,7 @@
+import { DetalheChamadoPage } from './../detalhe-chamado/detalhe-chamado';
 import { NovoChamadoPage } from './../novo-chamado/novo-chamado';
 import { Component } from '@angular/core';
-import { NavController, IonicPage, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
+import { NavController, IonicPage, NavParams, LoadingController, Loading, AlertController, ModalController } from 'ionic-angular';
 import { Usuario } from '../../modelos/usuario';
 import { ChamadoServiceProvider } from '../../providers/chamado-service/chamado-service';
 import { Chamado } from '../../modelos/chamado';
@@ -21,7 +22,8 @@ export class HomePage {
     private _navParams: NavParams,
     private _chamadoService: ChamadoServiceProvider,
     private _loadingCtrl: LoadingController,
-    private _alertCtrl: AlertController ) {
+    private _alertCtrl: AlertController, 
+    private _modalCtrl: ModalController) {
 
     this.usuarios = this._navParams.get('usuarioLogado'); 
     this.carregaChamados();   
@@ -51,7 +53,11 @@ export class HomePage {
       } ); 
   }
 
-  novoChamado(){
+  novoChamado():void {
     this._navCtrl.setRoot(NovoChamadoPage.name);
+  }
+
+  detalhaChamado(chamado: Chamado):void {
+    this._modalCtrl.create(DetalheChamadoPage.name, {chamadoSelecionado: chamado}).present();
   }
 }

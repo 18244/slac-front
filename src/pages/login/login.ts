@@ -15,8 +15,8 @@ export class LoginPage {
   usuario: Usuario = new Usuario( );
   
   constructor( 
-    public navCtrl: NavController, 
-    public navParams: NavParams,
+    public _navCtrl: NavController, 
+    public _navParams: NavParams,
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) {}
 

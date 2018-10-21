@@ -32,12 +32,7 @@ export class MyApp {
   }
 
   irParaPagina(page){
-    if(page.name === LoginPage.name )
       this.nav.setRoot(page);
-    
-    else
-      this.nav.push(page);
-    
   }
 }
 
