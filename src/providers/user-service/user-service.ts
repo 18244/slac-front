@@ -18,8 +18,8 @@ export class UserServiceProvider {
       }
   }
 
-  efetuaLogin(){
-    return this._httpClient.get<Usuario[]>(`${this.baseUrl}/usuario`);
+  efetuaLogin(usuario){
+    return this._httpClient.post<Usuario>(`${this.baseUrl}/usuario/login`, usuario);
   }
 
 }

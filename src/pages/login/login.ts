@@ -5,31 +5,27 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 import { UserServiceProvider } from './../../providers/user-service/user-service';
 
-@IonicPage()
-@Component({
+@IonicPage( )
+@Component( {
   selector: 'page-login',
   templateUrl: 'login.html',
-})
+} )
 export class LoginPage {
 
-  usuario: Usuario;
+  usuario: Usuario = new Usuario( );
   
   constructor( 
     public navCtrl: NavController, 
     public navParams: NavParams,
     private _userServiceProvider: UserServiceProvider,
-    private _alertCtrl: AlertController ) { console.log('Aqui...')}
+    private _alertCtrl: AlertController ) {}
 
   ionViewDidLoad() {}
 
   onLoginClick( ) {
-      this._userServiceProvider.efetuaLogin( )
-      .subscribe( ( usuario: Usuario[] ) =>{
-        this.navCtrl.setRoot( HomePage.name, {
-          usuarioLogado: usuario
-        } );
-    }, 
-    ( err ) => {
+      this._userServiceProvider.efetuaLogin( this.usuario )
+      .subscribe( ( usuario: Usuario ) => this.validaLogin( usuario ), 
+      ( err ) => {
       console.log( err );    
         this._alertCtrl.create({
         title: 'Falha no login!',
@@ -42,4 +38,16 @@ export class LoginPage {
     );
   }
 
+  validaLogin( usuario: Usuario ): void {
+    if( usuario )
+      this.navCtrl.setRoot( HomePage.name, { usuarioLogado: usuario } );
+    else
+    this._alertCtrl.create( {
+      title: 'Falha no login!',
+      subTitle: 'Usuário ou senha inválidos',
+      buttons: [
+        { text: 'OK' }
+      ]
+    } ).present( );
+  }
 }
