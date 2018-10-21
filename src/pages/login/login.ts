@@ -40,7 +40,7 @@ export class LoginPage {
 
   validaLogin( usuario: Usuario ): void {
     if( usuario )
-      this.navCtrl.setRoot( HomePage.name, { usuarioLogado: usuario } );
+      this._navCtrl.setRoot( HomePage.name, { usuarioLogado: usuario } );
     else
     this._alertCtrl.create( {
       title: 'Falha no login!',
