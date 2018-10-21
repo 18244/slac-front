@@ -1,4 +1,4 @@
-export interface Chamado{
+export class Chamado{
     id: number;
     tipo: string;
     descricao: string;
@@ -6,6 +6,6 @@ export interface Chamado{
     prioridade: string;
     data: Date;
     foto: string;
-    usuarioId: number;
+    idUsuario: number;
     status: string;
 }

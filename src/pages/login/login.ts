@@ -18,7 +18,10 @@ export class LoginPage {
     public _navCtrl: NavController, 
     public _navParams: NavParams,
     private _userServiceProvider: UserServiceProvider,
-    private _alertCtrl: AlertController ) {}
+    private _alertCtrl: AlertController ) {
+      this.usuario.login = 'Luiz';
+      this.usuario.senha = '123456';
+    }
 
   ionViewDidLoad() {}
 

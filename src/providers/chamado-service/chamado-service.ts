@@ -4,6 +4,7 @@ import { Platform } from 'ionic-angular';
 import { Chamado } from '../../modelos/chamado';
 import { Observable } from 'rxjs/Observable';
 
+
 @Injectable()
 export class ChamadoServiceProvider {
 
@@ -18,7 +19,11 @@ export class ChamadoServiceProvider {
       }
   }
 
-  getChamados() : Observable<Chamado[]>{
-    return this._httpClient.get<Chamado[]>(`${this.baseUrl}/chamado`);
+  getChamados( ) : Observable<Chamado[]> {
+    return this._httpClient.get<Chamado[]>( `${this.baseUrl}/chamado` );
+  }
+
+  postChamado( chamado: Chamado ): Observable<Chamado> {
+    return this._httpClient.post<Chamado>( `${this.baseUrl}/chamado`, chamado );
   }
 }

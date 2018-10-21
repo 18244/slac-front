@@ -9,7 +9,7 @@
   <!--<form>-->
       <ion-item>
         <ion-label>Tipo de Chamado</ion-label>
-        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="tipo">
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.tipo">
           <ion-option value="limpeza">Limpeza</ion-option>
           <ion-option value="reparo">Reparo</ion-option>
           <ion-option value="troca">Troca</ion-option>
@@ -17,11 +17,11 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary" stacked></ion-label>
-        <ion-input clearInput="true" type="text" [(ngModel)]="descricao" placeholder="Descrição"></ion-input>
+        <ion-input clearInput="true" type="text" [(ngModel)]="chamado.descricao" placeholder="Descrição"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Local</ion-label>
-        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="local">
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.local">
           <ion-option value="elevadorA1">Elevador A1</ion-option>
           <ion-option value="elevadorA2">Elevador A2 </ion-option>
           <ion-option value="elevadorA3">Elevador A3 </ion-option>
@@ -32,7 +32,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Andar</ion-label>
-        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="andar">
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.andar">
           <ion-option value="primeiro">1º Andar</ion-option>
           <ion-option value="segundo">2º Andar</ion-option>
           <ion-option value="terceiro">3º Andar</ion-option>
@@ -43,11 +43,11 @@
       </ion-item> 
       <ion-item>
        <ion-label>Prioridade</ion-label>
-       <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="prioridade">
-        <ion-option value="baixa">Baixa</ion-option>
-        <ion-option value="media">Média</ion-option>
-        <ion-option value="alta">Alta</ion-option>
-        <ion-option value="urgente">Urgente</ion-option>
+       <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.prioridade">
+        <ion-option value="BAIXA">Baixa</ion-option>
+        <ion-option value="MÉDIA">Média</ion-option>
+        <ion-option value="ALTA">Alta</ion-option>
+        <ion-option value="URGENTE">Urgente</ion-option>
        </ion-select>
       </ion-item> 
       <ion-item>

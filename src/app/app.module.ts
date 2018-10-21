@@ -6,6 +6,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import 'rxjs/add/operator/do';
+
+
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { ChamadoServiceProvider } from '../providers/chamado-service/chamado-service';
