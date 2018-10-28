@@ -15,8 +15,7 @@ export class LoginPage {
   usuario: Usuario = new Usuario( );
   
   constructor( 
-    public _navCtrl: NavController, 
-    public _navParams: NavParams,
+    private _navCtrl: NavController, 
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) {
       this.usuario.login = 'Luiz';
@@ -43,7 +42,7 @@ export class LoginPage {
 
   validaLogin( usuario: Usuario ): void {
     if( usuario )
-      this._navCtrl.setRoot( HomePage.name, { usuarioLogado: usuario } );
+      this._navCtrl.setRoot( HomePage.name );
     else
     this._alertCtrl.create( {
       title: 'Falha no login!',

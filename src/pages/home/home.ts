@@ -1,3 +1,5 @@
+import { UserServiceProvider } from './../../providers/user-service/user-service';
+import { Menu } from './../../modelos/menu';
 import { DetalheChamadoPage } from './../detalhe-chamado/detalhe-chamado';
 import { NovoChamadoPage } from './../novo-chamado/novo-chamado';
 import { Component } from '@angular/core';
@@ -11,20 +13,26 @@ import { Chamado } from '../../modelos/chamado';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  usuarios: Usuario;
+  usuarioLogado: Usuario;
   chamados: Chamado[];
   loading: Loading;
-
+  menus: Menu[];
+ 
+  
   constructor(
     private _navCtrl: NavController,
     private _navParams: NavParams,
     private _chamadoService: ChamadoServiceProvider,
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController, 
-    private _modalCtrl: ModalController) {
+    private _modalCtrl: ModalController, 
+    private _userService: UserServiceProvider) {
+    this.buscarMenus();  
     this.carregaChamados();   
+    this.usuarioLogado = this._userService.getUsuarioLogado();
   }
 
   ionViewDidLoad( ) {
@@ -62,4 +70,13 @@ export class HomePage {
   detalhaChamado(chamado: Chamado):void {
     this._modalCtrl.create(DetalheChamadoPage.name, {chamadoSelecionado: chamado}).present();
   }
+
+  buscarMenus(): void{
+    this._userService.getMenus()
+    .subscribe(menus => this.menus = menus),
+    (erro) => console.log(erro);
+  }
+  irParaPagina(page): void{
+    this._navCtrl.setRoot(page);
+ } 
 }

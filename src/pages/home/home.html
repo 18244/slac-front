@@ -9,6 +9,27 @@
   </ion-navbar>
 </ion-header>
 
+<ion-menu [content]="conteudo">
+  <ion-content>
+      <ion-item id="cabecalho-menu" class="cabecalho-menu">
+          <div>
+              <ion-avatar item-start>
+                  <img src="./assets/img/perfil.jpg">
+              </ion-avatar>
+          </div>
+          <h2>{{usuarioLogado?.nome}}</h2>
+          <p>luizcesarmais44@hotmail.com</p>
+      </ion-item>
+      <ion-list>
+          <button ion-item menuClose *ngFor="let menu of menus" (click)="irParaPagina(menu.page)">
+              <ion-icon [name]="menu.icone" item-right></ion-icon>
+              {{ menu.nome }}
+          </button>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav swipeBackEnabled="false" #conteudo></ion-nav>
+
 <ion-content padding class="background-page">
   <ion-item text-center>
       <h1>Chamados</h1>

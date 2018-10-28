@@ -1,5 +1,5 @@
+import { LoginPageModule } from './../pages/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -15,18 +15,18 @@ import { ChamadoServiceProvider } from '../providers/chamado-service/chamado-ser
 
 @NgModule({
   declarations: [
-    MyApp,
-    LoginPage
+    MyApp,    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    
   ],
   providers: [
     StatusBar,

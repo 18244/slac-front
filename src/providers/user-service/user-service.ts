@@ -1,3 +1,4 @@
+import { Menu } from './../../modelos/menu';
 import { Usuario } from './../../modelos/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -27,5 +28,9 @@ export class UserServiceProvider {
 
   getUsuarioLogado(): Usuario {
     return this.usuarioLogado;
+  }
+
+  getMenus(): Observable<Menu[]>{
+    return this._httpClient.get<Menu[]>(`${this.baseUrl}/menu`);
   }
 }
