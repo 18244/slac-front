@@ -25,7 +25,7 @@ export class NovoChamadoPage {
 
   ionViewDidLoad() {}
 
-  irLoginPage(): void{
+  irHomePage(): void{
     this._navCtrl.setRoot(HomePage.name);
   }
 

@@ -21,6 +21,10 @@ export class UserServiceProvider {
       }
   }
 
+  cadastraUsuario(usuario: Usuario): Observable<Usuario>{
+    return this._httpClient.post<Usuario>(`${this.baseUrl}/usuario`, usuario)
+  }
+
   efetuaLogin(usuario): Observable<Usuario> {
     return this._httpClient.post<Usuario>(`${this.baseUrl}/usuario/login`, usuario)
     .do( usuario =>  this.usuarioLogado = usuario );

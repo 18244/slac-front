@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Novo Usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background-page" padding>
+  <ion-item>
+    <ion-label color="primary">Nome:</ion-label>
+    <ion-input type="text" clearInput="true" placeholder="Nome" [(ngModel)]="usuario.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Login:</ion-label>
+    <ion-input type="text" clearInput="true" placeholder="Login" [(ngModel)]="usuario.login"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">E-mail:</ion-label>
+    <ion-input type="text" clearInput="true" placeholder="E-mail" [(ngModel)]="usuario.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Senha:</ion-label>
+    <ion-input type="password" clearInput="true" placeholder="Senha" [(ngModel)]="usuario.senha"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de Usuário</ion-label>
+    <ion-select placeholder="nenhum" okText="Confirma" cancelText="Cancelar" [(ngModel)]="usuario.tipo">
+      <ion-option value="FUNCIONARIO">Funcionário</ion-option>
+      <ion-option value="COMUM">Comum</ion-option>
+    </ion-select>
+  </ion-item> 
+  <ion-item>
+      <ion-label>Administrador</ion-label>
+      <ion-checkbox [(ngModel)]="usuario.administrador"></ion-checkbox>
+  </ion-item>
+  <ion-fab  bottom left #fab>
+    <button color="danger" (click)="irHomePage()"ion-fab><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+  <ion-fab  bottom right #fab>
+    <button color="green" (click)="confirmaCadastro()" ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

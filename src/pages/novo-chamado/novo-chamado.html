@@ -32,7 +32,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Andar</ion-label>
-        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.andar">
+        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar"><!--Andar-->
           <ion-option value="primeiro">1º Andar</ion-option>
           <ion-option value="segundo">2º Andar</ion-option>
           <ion-option value="terceiro">3º Andar</ion-option>
@@ -57,7 +57,7 @@
         </div>
       </ion-item> 
       <ion-fab  bottom left #fab>
-          <button color="danger" (click)="irLoginPage()" ion-fab><ion-icon name="close"></ion-icon></button>
+          <button color="danger" (click)="irHomePage()" ion-fab><ion-icon name="close"></ion-icon></button>
       </ion-fab>
       <ion-fab  bottom right #fab>
           <button color="green" (click)="confirmaChamado()" ion-fab><ion-icon name="add"></ion-icon></button>
