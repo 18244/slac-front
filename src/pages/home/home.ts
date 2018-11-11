@@ -30,9 +30,9 @@ export class HomePage {
     private _alertCtrl: AlertController, 
     private _modalCtrl: ModalController, 
     private _userService: UserServiceProvider) {
+    this.usuarioLogado = this._userService.getUsuarioLogado();
     this.buscarMenus();  
     this.carregaChamados();   
-    this.usuarioLogado = this._userService.getUsuarioLogado();
   }
 
   ionViewDidLoad( ) {
@@ -72,9 +72,18 @@ export class HomePage {
   }
 
   buscarMenus(): void{
-    this._userService.getMenus()
-    .subscribe(menus => this.menus = menus),
-    (erro) => console.log(erro);
+    if(this.usuarioLogado.administrador)
+    {
+      this._userService.getMenusAdministrador(this.usuarioLogado.administrador)
+      .subscribe(menus => this.menus = menus),
+      (erro) => console.log(erro);
+    }
+    else
+    {
+      this._userService.getMenus(this.usuarioLogado.tipo)
+      .subscribe(menus => this.menus = menus),
+      (erro) => console.log(erro);
+    }
   }
   irParaPagina(page): void{
     this._navCtrl.setRoot(page);
