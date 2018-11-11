@@ -29,8 +29,12 @@ export class UserServiceProvider {
   getUsuarioLogado(): Usuario {
     return this.usuarioLogado;
   }
+  
+  getMenusAdministrador(administrador: boolean): Observable<Menu[]>{
+    return this._httpClient.get<Menu[]>(`${this.baseUrl}/menu/administrador/` + administrador );
+  }
 
-  getMenus(): Observable<Menu[]>{
-    return this._httpClient.get<Menu[]>(`${this.baseUrl}/menu`);
+  getMenus(tipo: string): Observable<Menu[]>{
+    return this._httpClient.get<Menu[]>(`${this.baseUrl}/menu/` + tipo);
   }
 }
