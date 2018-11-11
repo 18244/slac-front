@@ -1,7 +1,7 @@
 import { Usuario } from './../../modelos/usuario';
 import { Component } from '@angular/core';
 import { HomePage } from './../home/home';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 
 import { UserServiceProvider } from './../../providers/user-service/user-service';
 

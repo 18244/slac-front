@@ -18,7 +18,7 @@
               </ion-avatar>
           </div>
           <h2>{{usuarioLogado?.nome}}</h2>
-          <p>luizcesarmais44@hotmail.com</p>
+          <p>{{usuarioLogado?.email}}</p>
       </ion-item>
       <ion-list>
           <button ion-item menuClose *ngFor="let menu of menus" (click)="irParaPagina(menu.page)">
