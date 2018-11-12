@@ -44,10 +44,7 @@
       <ion-item>
        <ion-label>Prioridade</ion-label>
        <ion-select placeholder="nenhum" okText="OK" cancelText="Cancelar" [(ngModel)]="chamado.prioridade">
-        <ion-option value="BAIXA">Baixa</ion-option>
-        <ion-option value="MÉDIA">Média</ion-option>
-        <ion-option value="ALTA">Alta</ion-option>
-        <ion-option value="URGENTE">Urgente</ion-option>
+        <ion-option *ngFor="let prioridade of prioridades" [value]="valor">{{prioridade.tipo}}</ion-option>
        </ion-select>
       </ion-item> 
       <ion-item>

@@ -20,6 +20,7 @@ export class HomePage {
   chamados: Chamado[];
   loading: Loading;
   menus: Menu[];
+  segment: string = '';
  
   
   constructor(
@@ -30,6 +31,7 @@ export class HomePage {
     private _alertCtrl: AlertController, 
     private _modalCtrl: ModalController, 
     private _userService: UserServiceProvider) {
+    this.segment = 'todos';  
     this.usuarioLogado = this._userService.getUsuarioLogado();
     this.buscarMenus();  
     this.carregaChamados();   
@@ -37,6 +39,7 @@ export class HomePage {
 
   ionViewDidLoad( ) {
     this.chamados = this._navParams.get( 'novosChamados' ); 
+    this.segment = 'todos';
   }
 
   carregaChamados(){
@@ -61,6 +64,10 @@ export class HomePage {
           ]
           }).present();
       } ); 
+  }
+
+  filtraChamados(event: any): void {
+    console.log(event._value);
   }
 
   novoChamado():void {

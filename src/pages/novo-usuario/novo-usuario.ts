@@ -42,7 +42,10 @@ export class NovoUsuarioPage {
   cadastraUsuario(): void {
     this.usuario.ativo = true;
     this._userService.cadastraUsuario(this.usuario)
-    .subscribe(()=> console.log('cadastrado...'),
+    .subscribe(()=>  {
+      console.log('cadastrado...')
+      this._navCtrl.setRoot(HomePage.name);
+    },
     (erro)=> console.log(erro));
   }
 }

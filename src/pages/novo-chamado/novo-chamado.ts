@@ -16,12 +16,18 @@ export class NovoChamadoPage {
   public chamado: Chamado = new Chamado( );
   public chamados: Chamado[];
   public foto: string = '../assets/img/foto-icon.png';
+  
+  public prioridades = [
+    { valor :'BAIXA'   , tipo: 'Baixa'   },
+    { valor :'MÉDIA'   , tipo: 'Média'   },
+    { valor :'ALTA'    , tipo: 'Alta'    },
+    { valor :'URGENTE' , tipo: 'Urgente' }
+  ];
 
   constructor( private _navCtrl: NavController,
                private _alertController: AlertController,
                private _chamadoService: ChamadoServiceProvider,
-               private _usuarioService: UserServiceProvider ) {
-  }
+               private _usuarioService: UserServiceProvider ) { }
 
   ionViewDidLoad() {}
 

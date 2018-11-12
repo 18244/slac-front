@@ -34,7 +34,16 @@
   <ion-item text-center>
       <h1>Chamados</h1>
   </ion-item>
-
+  <ion-toolbar *ngIf="!usuarioLogado?.administrador" no-border-top color="primary">
+    <ion-segment color="light"  [(ngModel)]="segment" (ionChange)="filtraChamados($event)">
+      <ion-segment-button value="todos">
+        <span class="bold">Todos os Chamados</span>
+      </ion-segment-button>
+      <ion-segment-button value="seus">
+        <span class="bold">Seus Chamados</span>
+      </ion-segment-button>
+    </ion-segment>  
+  </ion-toolbar>
   <ion-grid>
     <ion-item-divider color="light">
       <ion-row>
