@@ -21,7 +21,7 @@
   <ion-fab  bottom left #fab>
       <button color="primary" (click)="fechaModal()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>
   </ion-fab>
-  <ion-fab  bottom right #fab>
+  <ion-fab *ngIf="usuario.administrador" bottom right #fab>
     <button color="green" (click)="atribuiChamado()" ion-fab>  <ion-icon name="send"></ion-icon></button>
   </ion-fab>
 </ion-content>

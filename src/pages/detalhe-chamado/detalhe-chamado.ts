@@ -1,3 +1,5 @@
+import { UserServiceProvider } from './../../providers/user-service/user-service';
+import { Usuario } from './../../modelos/usuario';
 import { Chamado } from './../../modelos/chamado';
 import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController, AlertController } from 'ionic-angular';
@@ -9,14 +11,17 @@ import { IonicPage, NavParams, ViewController, AlertController } from 'ionic-ang
 })
 export class DetalheChamadoPage {
 
-  public chamado: Chamado;
-  public responsavel: string = 'Ninguem';
+  chamado: Chamado;
+  responsavel: string = 'Ninguem';
+  usuario: Usuario;
   foto: string = '../assets/img/foto-icon.png';
 
   constructor( private _viewController : ViewController, 
                private _navParams: NavParams,
-               private _alertController: AlertController ) {
+               private _alertController: AlertController,
+               private _userService: UserServiceProvider ) {
     this.chamado = this._navParams.get('chamadoSelecionado');
+    this.usuario = this._userService.getUsuarioLogado();
   }
 
   ionViewDidLoad() {}
