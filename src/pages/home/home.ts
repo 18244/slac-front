@@ -67,7 +67,16 @@ export class HomePage {
   }
 
   filtraChamados(event: any): void {
-    console.log(event._value);
+    if(event._value == 'seus')
+      this._chamadoService.getChamadosUsuario(this.usuarioLogado.id)
+      .subscribe((chamados)=> this.chamados = chamados,
+      (erro) => console.log(erro)
+       );
+    else
+    this._chamadoService.getChamados()
+    .subscribe((chamados)=> this.chamados = chamados,
+    (erro) => console.log(erro)
+     );
   }
 
   novoChamado():void {

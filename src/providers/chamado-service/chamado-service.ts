@@ -23,6 +23,10 @@ export class ChamadoServiceProvider {
     return this._httpClient.get<Chamado[]>( `${this.baseUrl}/chamado` );
   }
 
+  getChamadosUsuario(usuario_id : number): Observable<Chamado[]>{
+    return this._httpClient.get<Chamado[]>(`${this.baseUrl}/chamado/` + usuario_id );
+  }
+
   postChamado( chamado: Chamado ): Observable<Chamado> {
     return this._httpClient.post<Chamado>( `${this.baseUrl}/chamado`, chamado );
   }
