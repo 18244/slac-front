@@ -18,7 +18,7 @@ export class LoginPage {
     private _navCtrl: NavController, 
     private _userServiceProvider: UserServiceProvider,
     private _alertCtrl: AlertController ) {
-      this.usuario.login = 'Luiz';
+      this.usuario.login = 'luiz.silva';
       this.usuario.senha = '1234';
     }
 

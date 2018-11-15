@@ -38,6 +38,10 @@ export class UserServiceProvider {
     return this._httpClient.get<Usuario[]>(`${this.baseUrl}/usuario`);
   }
   
+  deletarUsuario(usuario: Usuario): Observable<Usuario[]>{
+    return this._httpClient.delete<Usuario[]>(`${this.baseUrl}/usuario/`+ usuario.id);
+  }
+  
   getMenusAdministrador(administrador: boolean): Observable<Menu[]>{
     return this._httpClient.get<Menu[]>(`${this.baseUrl}/menu/administrador/` + administrador );
   }

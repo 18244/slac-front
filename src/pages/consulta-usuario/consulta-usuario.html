@@ -7,16 +7,22 @@
     <ion-grid>
         <ion-item-divider color="light">
           <ion-row>
-          <ion-col>Nome</ion-col>
-          <ion-col>Login</ion-col>
-          <ion-col>Tipo</ion-col>
+          <ion-col col-7>Nome</ion-col>
+          <ion-col col-3>Login</ion-col>
+          <ion-col col-2>Tipo</ion-col>
           </ion-row>
         </ion-item-divider>
-        <ion-item-divider class="cursor" *ngFor="let usuario of usuarios">  
+        <ion-item-divider class="cursor" *ngFor="let usuario of usuarios" (click)="detalhaUsuario(usuario)">  
           <ion-row>
-            <ion-col>{{usuario.nome}}</ion-col>
-            <ion-col>{{usuario.login}}</ion-col>
-            <ion-col>{{usuario.tipo}}</ion-col>
+            <ion-col col-7>{{usuario.nome}}</ion-col>
+            <ion-col col-3>{{usuario.login}}</ion-col>
+            <ion-col col-2 *ngIf="usuario.tipo == 'COMUM'; else elseFuncionario">
+              <ion-icon name="person"></ion-icon>
+            </ion-col>
+            <ion-col col-2>
+              <ng-template #elseFuncionario><ion-icon name="build"></ion-icon></ng-template>
+            </ion-col>
+            
           </ion-row>
         </ion-item-divider>
       </ion-grid>

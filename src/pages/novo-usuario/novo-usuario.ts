@@ -1,3 +1,4 @@
+import { ConsultaUsuarioPage } from './../consulta-usuario/consulta-usuario';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { Usuario } from '../../modelos/usuario';
@@ -25,7 +26,7 @@ export class NovoUsuarioPage {
 
   confirmaCadastro():void {
     this._alertController.create({
-    title: `Cadastrar do usuário ${this.usuario.nome}?` ,
+    title: `Cadastrar o usuário ${this.usuario.nome}?` ,
     message: 'Deseja confirmar o cadastro deste usuário?',
     buttons:[
       {
@@ -43,8 +44,7 @@ export class NovoUsuarioPage {
     this.usuario.ativo = true;
     this._userService.cadastraUsuario(this.usuario)
     .subscribe(()=>  {
-      console.log('cadastrado...')
-      this._navCtrl.setRoot(HomePage.name);
+      this._navCtrl.setRoot(ConsultaUsuarioPage.name);
     },
     (erro)=> console.log(erro));
   }

@@ -61,7 +61,7 @@ export class NovoChamadoPage {
     this.chamado.idUsuario = this._usuarioService.getUsuarioLogado().id;
    
     this._chamadoService.postChamado( this.chamado )
-    .subscribe(( resposta ) => this.carregaChamados( ),
+    .subscribe(( ) => this.carregaChamados( ),
     (erro) => console.log(erro)
     );
   }

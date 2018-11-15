@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Detalhes do Usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background-page" padding>
+  <ion-item-divider class="header" text-center color="light">
+      Usuário: {{usuario?.nome}}
+  </ion-item-divider>
+  <ion-item>Nome: {{usuario?.nome}}</ion-item>
+  <ion-item>Login: {{usuario?.login}}</ion-item>
+  <ion-item>E-mail: {{usuario?.email}}</ion-item>
+  <ion-item>Tipo: {{usuario?.tipo}}</ion-item>
+  <ion-item><ion-label>Administrador</ion-label>
+    <ion-toggle disabled="true" [(ngModel)]="usuario.administrador"></ion-toggle> 
+  </ion-item>
+  <ion-item><ion-label>Ativo</ion-label>
+    <ion-toggle disabled="true" [(ngModel)]="usuario.ativo"></ion-toggle> 
+  </ion-item>      
+  <ion-fab  bottom left #fab>
+      <button color="primary" (click)="fechaModal()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>
+  </ion-fab>
+  <ion-fab  bottom right #fab>
+      <button color="danger" (click)="confirmarDeletar()" ion-fab><ion-icon name="trash"></ion-icon></button>
+  </ion-fab>
+</ion-content>
