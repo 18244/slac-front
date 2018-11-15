@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Consulta de Usuários</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background-page" padding>
+    <ion-grid>
+        <ion-item-divider color="light">
+          <ion-row>
+          <ion-col>Nome</ion-col>
+          <ion-col>Login</ion-col>
+          <ion-col>Tipo</ion-col>
+          </ion-row>
+        </ion-item-divider>
+        <ion-item-divider class="cursor" *ngFor="let usuario of usuarios">  
+          <ion-row>
+            <ion-col>{{usuario.nome}}</ion-col>
+            <ion-col>{{usuario.login}}</ion-col>
+            <ion-col>{{usuario.tipo}}</ion-col>
+          </ion-row>
+        </ion-item-divider>
+      </ion-grid>
+  <ion-fab  bottom left #fab>
+    <button color="primary" (click)="irHomePage()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>
+  </ion-fab>  
+</ion-content>
