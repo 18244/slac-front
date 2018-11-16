@@ -58,6 +58,7 @@ export class NovoChamadoPage {
   cadastraChamado(): void{
     this.chamado.status = 'ABERTO';
     this.chamado.data = new Date( );
+    this.chamado.matriculaUsuario = 0;
     this.chamado.idUsuario = this._usuarioService.getUsuarioLogado().id;
    
     this._chamadoService.postChamado( this.chamado )

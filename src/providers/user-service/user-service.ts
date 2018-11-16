@@ -38,6 +38,10 @@ export class UserServiceProvider {
     return this._httpClient.get<Usuario[]>(`${this.baseUrl}/usuario`);
   }
   
+  getFuncionarios(tipo: string): Observable<Usuario[]>{
+    return this._httpClient.get<Usuario[]>(`${this.baseUrl}/usuario/funcionario/${tipo}`);
+  }
+  
   deletarUsuario(usuario: Usuario): Observable<Usuario[]>{
     return this._httpClient.delete<Usuario[]>(`${this.baseUrl}/usuario/`+ usuario.id);
   }

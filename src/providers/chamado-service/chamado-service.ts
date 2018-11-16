@@ -1,7 +1,7 @@
+import { Chamado } from './../../modelos/chamado';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Chamado } from '../../modelos/chamado';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -21,6 +21,10 @@ export class ChamadoServiceProvider {
 
   getChamados( ) : Observable<Chamado[]> {
     return this._httpClient.get<Chamado[]>( `${this.baseUrl}/chamado` );
+  }
+
+  updateChamado(chamado: Chamado): Observable<Chamado>{
+    return this._httpClient.put<Chamado>(`${this.baseUrl}/chamado`, chamado);
   }
 
   getChamadosUsuario(usuario_id : number): Observable<Chamado[]>{

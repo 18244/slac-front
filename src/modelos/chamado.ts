@@ -7,5 +7,6 @@ export class Chamado{
     data: Date;
     foto: string;
     idUsuario: number;
+    matriculaUsuario: number;
     status: string;
 }

@@ -28,6 +28,10 @@
       <ion-option value="COMUM">Comum</ion-option>
     </ion-select>
   </ion-item> 
+  <ion-item *ngIf="usuario.tipo == 'FUNCIONARIO'">
+    <ion-label color="primary">Matrícula:</ion-label>
+    <ion-input type="text" clearInput="true" placeholder="Matrícula" [(ngModel)]="usuario.matricula"></ion-input>
+  </ion-item>
   <ion-item>
       <ion-label>Administrador</ion-label>
       <ion-checkbox [(ngModel)]="usuario.administrador"></ion-checkbox>
