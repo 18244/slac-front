@@ -13,7 +13,7 @@ import { AlertInputOptions } from 'ionic-angular/umd/components/alert/alert-opti
 })
 export class DetalheChamadoPage {
 
-  public responsavel: string = 'Ninguem';
+  public responsavel: Usuario;
   public usuario: Usuario;
   public foto: string = '../assets/img/foto-icon.png';
   private funcionarios: Usuario[];
@@ -26,8 +26,9 @@ export class DetalheChamadoPage {
                private _userService: UserServiceProvider,
                private _chamadoService: ChamadoServiceProvider ) {
     this.chamado = this._navParams.get('chamadoSelecionado');
+    this.getResponsavelChamado(this.chamado.matriculaUsuario);
     this.usuario = this._userService.getUsuarioLogado();
-    this. getFuncionarios();
+    this.getFuncionarios();
   }
 
   ionViewDidLoad() {}
@@ -37,6 +38,13 @@ export class DetalheChamadoPage {
     .subscribe((funcionarios) => this.funcionarios = funcionarios,
     (erro)=> console.log(erro)
      );
+  }
+
+  getResponsavelChamado(matricula: number): void {
+    this._userService.getResponsavelChamado(matricula)
+    .subscribe((responsavel)=> this.responsavel = responsavel,
+    (erro)=> console.log(erro)
+    );
   }
 
   fechaModal():void {
@@ -78,8 +86,9 @@ export class DetalheChamadoPage {
   mudaResponsavel(matricula : string): void {
     let funcionario = this.funcionarios.find(funcionario => funcionario.matricula.toString().includes(matricula));
     this.chamado.matriculaUsuario = funcionario.matricula;
+    this.responsavel.nome = funcionario.nome;
     this._chamadoService.updateChamado(this.chamado)
-    .subscribe(()=> console.log('ok'),
-    (erro)=> console.log(erro)); 
+      .subscribe(()=> this._viewController.dismiss(),
+      (erro)=> console.log(erro)); 
   }
 }

@@ -42,6 +42,11 @@ export class UserServiceProvider {
     return this._httpClient.get<Usuario[]>(`${this.baseUrl}/usuario/funcionario/${tipo}`);
   }
   
+  getResponsavelChamado(matricula: number):Observable<Usuario>{
+    return this._httpClient.get<Usuario>(`${this.baseUrl}/usuario/responsavel/${matricula}`);
+
+  } 
+  
   deletarUsuario(usuario: Usuario): Observable<Usuario[]>{
     return this._httpClient.delete<Usuario[]>(`${this.baseUrl}/usuario/`+ usuario.id);
   }

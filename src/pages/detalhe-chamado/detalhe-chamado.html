@@ -14,7 +14,7 @@
   <ion-item>Prioridade: {{chamado?.prioridade}}</ion-item>
   <ion-item>Data: {{chamado?.data | date:'dd/MM/yyyy'}}</ion-item>
   <ion-item>Status: {{chamado?.status}}</ion-item>
-  <ion-item>Atribuído a : {{responsavel}}</ion-item>
+  <ion-item>Atribuído a : {{responsavel ? responsavel?.nome : 'ninguém'}}</ion-item>
   <div class="foto-icon">
     <img [src]="foto" alt="foto-chamado"><img>
   </div>
