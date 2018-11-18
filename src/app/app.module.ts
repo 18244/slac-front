@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import 'rxjs/add/operator/do';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -21,7 +22,8 @@ import { ChamadoServiceProvider } from '../providers/chamado-service/chamado-ser
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    LoginPageModule
+    LoginPageModule,
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
