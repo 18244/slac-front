@@ -1,8 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Mensagens</ion-title>
+    <ion-title text-center>Suas Mensagens</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="background-page" padding>
+  <ion-card *ngFor="let mensagem of mensagens">
+    <ion-card-content>
+      <ion-card-title>
+        Data: {{ mensagem?.data | date:'dd/MM/yyyy' }}
+      </ion-card-title>
+      <p>
+        {{ mensagem?.texto }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab  bottom left #fab>
+    <button color="primary" (click)="irHomePage()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>
+  </ion-fab>
 </ion-content>

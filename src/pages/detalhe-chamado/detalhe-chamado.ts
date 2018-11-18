@@ -1,3 +1,4 @@
+import { Mensagem } from './../../modelos/mensagem';
 import { ChamadoServiceProvider } from './../../providers/chamado-service/chamado-service';
 import { UserServiceProvider } from './../../providers/user-service/user-service';
 import { Usuario } from './../../modelos/usuario';
@@ -18,6 +19,7 @@ export class DetalheChamadoPage {
   public foto: string = '../assets/img/foto-icon.png';
   private funcionarios: Usuario[];
   private chamado: Chamado;
+  private mensagem: Mensagem = new Mensagem();
   private responsaveis: AlertInputOptions;
 
   constructor( private _viewController : ViewController, 
@@ -86,9 +88,25 @@ export class DetalheChamadoPage {
   mudaResponsavel(matricula : string): void {
     let funcionario = this.funcionarios.find(funcionario => funcionario.matricula.toString().includes(matricula));
     this.chamado.matriculaUsuario = funcionario.matricula;
-    this.responsavel.nome = funcionario.nome;
+
+    if(this.responsavel)
+      this.responsavel.nome = funcionario.nome;
+    this.mensagem.responsavel = funcionario.nome;  
+    this.mensagem.responsavel_id = funcionario.id;
     this._chamadoService.updateChamado(this.chamado)
-      .subscribe(()=> this._viewController.dismiss(),
+      .subscribe(()=> {
+        this.criaMensagem();
+        this._viewController.dismiss();
+      } ,
       (erro)=> console.log(erro)); 
+  }
+
+  criaMensagem(): void {
+    this.mensagem.data = new Date();
+    this.mensagem.texto = `Olá, ${this.mensagem.responsavel} o chamado ${this.chamado.id} foi atribuído a você.`;
+    this._chamadoService.postMensagem(this.mensagem)
+    .subscribe(()=> console.log('OK'),
+    (erro)=> console.log(erro)
+    );
   }
 }
