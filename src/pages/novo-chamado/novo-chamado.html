@@ -48,9 +48,9 @@
        </ion-select>
       </ion-item> 
       <ion-item>
-        <h3 id="tituto-foto">Adicionar Foto</h3>        
+        <h3 *ngIf="!temFoto" id="tituto-foto">Adicionar Foto</h3>        
         <div class="foto-icon cursor">
-          <img (click)="insereFoto()" [src]="foto" alt="foto-chamado"><img>
+          <img (click)="insereFoto()" src="{{foto}}" alt="foto-chamado"><img>
         </div>
       </ion-item> 
       <ion-fab  bottom left #fab>

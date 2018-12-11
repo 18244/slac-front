@@ -67,11 +67,17 @@ export class HomePage {
   }
 
   filtraChamados(event: any): void {
-    if(event._value == 'seus')
+    if(event._value == 'seus' && this.usuarioLogado.tipo == 'COMUM')
       this._chamadoService.getChamadosUsuario(this.usuarioLogado.id)
       .subscribe((chamados)=> this.chamados = chamados,
       (erro) => console.log(erro)
        );
+     else
+        if(event._value == 'seus' && this.usuarioLogado.tipo == 'FUNCIONARIO')
+        this._chamadoService.getChamadosUsuario(this.usuarioLogado.matricula)
+        .subscribe((chamados)=> this.chamados = chamados,
+        (erro) => console.log(erro)
+         );  
     else
     this._chamadoService.getChamados()
     .subscribe((chamados)=> this.chamados = chamados,

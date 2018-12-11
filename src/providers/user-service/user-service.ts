@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserServiceProvider {
 
-   baseUrl = 'http://localhost:8080/api';
+   baseUrl = 'http://192.168.11.3:8080/api';
    usuarioLogado : Usuario;
 
   constructor(
@@ -17,7 +17,7 @@ export class UserServiceProvider {
     private _platform: Platform) { 
     
       if(this._platform.is("cordova")){
-        this.baseUrl = 'http://localhost:8080'
+        this.baseUrl = 'http://192.168.11.3:8080/api'
       }
   }
 

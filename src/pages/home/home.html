@@ -14,7 +14,7 @@
       <ion-item id="cabecalho-menu" class="cabecalho-menu">
           <div>
               <ion-avatar item-start>
-                  <img src="./assets/img/perfil.jpg">
+                  <img src="./assets/img/avatar.png">
               </ion-avatar>
           </div>
           <h2>{{usuarioLogado?.nome}}</h2>
@@ -44,7 +44,7 @@
       </ion-segment-button>
     </ion-segment>  
   </ion-toolbar>
-  <ion-grid>
+   <ion-grid>
     <ion-item-divider color="light">
       <ion-row>
       <ion-col>Tipo</ion-col>
@@ -52,6 +52,7 @@
       <ion-col>Local</ion-col>
       </ion-row>
     </ion-item-divider>
+    <h4 text-center *ngIf="!chamados?.length">Nenhum Chamado...</h4>
     <ion-item-divider class="cursor" *ngFor="let chamado of chamados" (click)="detalhaChamado(chamado)">  
       <ion-row>
         <ion-col>

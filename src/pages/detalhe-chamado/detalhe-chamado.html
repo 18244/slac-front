@@ -16,7 +16,7 @@
   <ion-item>Status: {{chamado?.status}}</ion-item>
   <ion-item>Atribuído a : {{responsavel ? responsavel?.nome : 'ninguém'}}</ion-item>
   <div class="foto-icon">
-    <img [src]="foto" alt="foto-chamado"><img>
+    <img [src]="chamado.foto" alt="foto-chamado"><img>
   </div>
   <ion-fab  bottom left #fab>
       <button color="primary" (click)="fechaModal()" ion-fab><ion-icon name="arrow-back"></ion-icon></button>

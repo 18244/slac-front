@@ -1,3 +1,4 @@
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { UserServiceProvider } from './../../providers/user-service/user-service';
 import { ChamadoServiceProvider } from './../../providers/chamado-service/chamado-service';
 import { Chamado } from './../../modelos/chamado';
@@ -15,7 +16,8 @@ export class NovoChamadoPage {
   
   public chamado: Chamado = new Chamado( );
   public chamados: Chamado[];
-  public foto: string = '../assets/img/foto-icon.png';
+  public foto = '../assets/img/foto-icon.png';
+  public temFoto: boolean = false;
   
   public prioridades = [
     { valor :'BAIXA'   , tipo: 'Baixa'   },
@@ -27,7 +29,8 @@ export class NovoChamadoPage {
   constructor( private _navCtrl: NavController,
                private _alertController: AlertController,
                private _chamadoService: ChamadoServiceProvider,
-               private _usuarioService: UserServiceProvider ) { }
+               private _usuarioService: UserServiceProvider,
+               private _camera: Camera ) { }
 
   ionViewDidLoad() {}
 
@@ -36,7 +39,23 @@ export class NovoChamadoPage {
   }
 
   insereFoto():void{
-    console.log("Foto");
+   const options : CameraOptions = {
+    quality: 100,
+    destinationType: this._camera.DestinationType.DATA_URL,
+    encodingType: this._camera.EncodingType.JPEG,
+    mediaType: this._camera.MediaType.PICTURE,
+   }
+   this._camera.getPicture(options)
+        .then((imageData) => {
+          if(imageData){
+            let base64image = 'data:image/jpeg;base64,' + imageData;
+            this.foto = base64image; 
+            this.temFoto = true;
+            this.chamado.foto = imageData;
+          }
+
+        }, (erro) => console.log(erro))
+        .catch((erro) => console.log(erro));
   }
 
   confirmaChamado():void {

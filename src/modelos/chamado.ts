@@ -5,7 +5,7 @@ export class Chamado{
     local: string;
     prioridade: string;
     data: Date;
-    foto: string;
+    foto: any;
     idUsuario: number;
     matriculaUsuario: number;
     status: string;
